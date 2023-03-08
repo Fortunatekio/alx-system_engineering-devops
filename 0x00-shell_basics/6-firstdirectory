@@ -1,2 +1,2 @@
-#!/bin/bash
-mkdir -p
+#/bin/bash
+ mkdir -p
