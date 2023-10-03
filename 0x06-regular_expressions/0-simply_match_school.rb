@@ -1,2 +1,11 @@
 #!/usr/bin/env ruby
-#puts ARGV[0].scan(/School/).join
+
+if ARGV.empty?
+  puts ""
+else
+  input_string = ARGV[0]
+  
+  matches = input_string.scan(/School/)
+  
+  puts matches.join
+end
