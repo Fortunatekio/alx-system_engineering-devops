@@ -1,3 +1,5 @@
+![2-secured_and_monitored_web_infrastructure](https://github.com/Fortunatekio/alx-system_engineering-devops/assets/97586344/f62b1bd4-b25c-4810-bda1-332b4954c989)
+
 Description
 This is a 3-server web infrastructure that is secured, monitored, and serves encrypted traffic.
 
