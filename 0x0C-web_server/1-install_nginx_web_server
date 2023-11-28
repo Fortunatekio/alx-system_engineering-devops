@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-# installs nginx on a remote server and configures it
-sudo apt-get update
-sudo apt-get install -y nginx
-sudo sed -i 's/^.*listen.*$/listen 80;/g' /etc/nginx/sites-available/default
-sudo kill -s HUP $(cat /var/run/nginx.pid)
-curl_output=$(curl -s 127.0.0.1)
-if [[ $curl_output == *"Hello World!"* ]]; then
-	echo "Nginx successfully installed and serving 'Hello World!'"
-else
-	echo "Something went wrong with Nginx installation or configuration"
-fi
+# Install nginx on web server; Nginx should be listening on port 80
+# Querying Nginx at its root (/) with a GET request (requesting a page)
+# 	   curl http://35.229.54.225/   --> returns string "Holberton School"
+#	   curl http://35.229.54.225/   --> returns header info
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+sudo service nginx start
