@@ -3,5 +3,10 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo sed -i 's/^.*listen.*$/listen 80;/g' /etc/nginx/sites-available/default
-sudo service nginx restart || sudo /etc/init.d/nginx restart
-echo "<html><body><h1>Hello World!</h1></body></html>" | sudo tee /var/www/html/index.html > /dev/null
+sudo kill -s HUP $(cat /var/run/nginx.pid)
+curl_output=$(curl -s 127.0.0.1)
+if [[ $curl_output == *"Hello World!"* ]]; then
+	echo "Nginx successfully installed and serving 'Hello World!'"
+else
+	echo "Something went wrong with Nginx installation or configuration"
+fi
