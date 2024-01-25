@@ -1,4 +1,5 @@
-listen 80;
+server {
+    listen 80;
     listen [::]:80 default_server ipv6only=on;
 
     # Use IP of server as domain name
